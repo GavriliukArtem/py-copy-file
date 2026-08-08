@@ -1,16 +1,16 @@
 def copy_file(command: str) -> None:
 
     if command:
-        separete_command = command.split(" ")
-        if len(separete_command) > 2 and separete_command[0] == "cp":
-            file1 = separete_command[1]
-            file2 = separete_command[2]
-            if file1 == file2:
+        separate_command = command.split(" ")
+        if len(separate_command) == 3 and separate_command[0] == "cp":
+            source_file = separate_command[1]
+            destination_file = separate_command[2]
+            if source_file == destination_file:
                 return
-            if len(file1) > 0:
+            if len(source_file) > 0:
                 try:
-                    with (open(file1, "r") as file_out,
-                          open(file2, "w") as file_in):
-                        file_in.write(file_out.read())
+                    with (open(source_file, "r") as source_file,
+                          open(destination_file, "w") as destination_file):
+                        destination_file .write(source_file .read())
                 except FileNotFoundError:
                     pass

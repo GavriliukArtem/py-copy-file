@@ -9,8 +9,8 @@ def copy_file(command: str) -> None:
                 return
             if len(source_file) > 0:
                 try:
-                    with (open(source_file, "r") as source_file,
-                          open(destination_file, "w") as destination_file):
-                        destination_file .write(source_file .read())
+                    with (open(source_file, "r") as file_out,
+                          open(destination_file, "w") as file_in):
+                        file_in.write(file_out.read())
                 except FileNotFoundError:
                     pass
